@@ -8,6 +8,13 @@ The script asks the user to input the numbers and the operation to be performed,
 and prints the result to the terminal window.
 
 """
+def try_operation(prompt: str) -> str:
+    while True:
+        op = input(prompt)
+        if (op == "add" or op == "subtract" or op == "multiply" or op == "divide"):
+            return op
+        else:
+            print("Please enter a valid operation: 'add', 'subtract', 'multiply', or 'divide'.")
 def try_number(prompt: str) -> float:
     while True: 
         try:
@@ -50,7 +57,7 @@ def main():
     # Ask the user for sample input    
     num1 = float(try_number("Enter the first number: "))
     num2 = float(try_number("Enter the second number: "))
-    operation = input("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
+    operation = try_operation("Enter the operation (add, subtract, multiply, divide): ").strip().lower()
 
     # Perform the calculation and display the result
     result = simple_calculator(operation, num1, num2)
